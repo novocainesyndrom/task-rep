@@ -46,9 +46,14 @@ def task_2():
 
 glb_var = 9
 
+
 def var_mult(var):
 	values = list(map(lambda num: num * glb_var, range(1,var)))
 	return  values, len(values)
+
+def var_mult_easy(numeric_variable, returning_list=[]):
+	returning_list.append(numeric_variable * glb_var) 
+	return returning_list, len(returning_list)
 
 def arguments(*args, **kwargs):
 	print( "*" * 80 + '\n' + f"args={args}\nkwargs={kwargs}")
@@ -65,6 +70,7 @@ if __name__ == '__main__':
 	sep='\n' + "*" * 80 + '\n'
 	task_2()
 	print(sep + "List: {0}\nLength: {1}".format(*var_mult(7)),
+	      	   "List: {0}\nLength: {1}".format(*var_mult_easy(8)),
 		   f'{num} is divisible by {divisor}' if is_divisible_by(num, divisor) else f'{num} isn\'t divisible by {divisor}' , 
 		   f'{fib_num} Fibonacci number is {fib(fib_num)}',
 		   sep=sep)
