@@ -65,7 +65,7 @@ if __name__ == '__main__':
 	sep='\n' + "*" * 80 + '\n'
 	task_2()
 	print(sep + "List: {0}\nLength: {1}".format(*var_mult(7)),
-		   f'{num} is divised by {divisor}' if is_divisible_by(num, divisor) else f'{num} isn\'t divised by {divisor}' , 
+		   f'{num} is divisible by {divisor}' if is_divisible_by(num, divisor) else f'{num} isn\'t divisible by {divisor}' , 
 		   f'{fib_num} Fibonacci number is {fib(fib_num)}',
 		   sep=sep)
 	arguments(6,7,8, val1=10, val2=57)
