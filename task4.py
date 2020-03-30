@@ -44,7 +44,8 @@ if __name__ == "__main__":
         obj2.__var
     except:
         print("Something went wrong")
-
+    print(obj2._Private__var)
+    
     obj3 = Common_Operations(5)
     print("GCD = {0}; LCM = {1}".format(*obj3.multiply(*nums)))
 
