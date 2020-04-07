@@ -20,7 +20,7 @@ rand_tickets = random.sample(range(1000000000, 9999999999), 100)
 for ticket in range(1,3):
 	print(f"Ticket {ticket} = {random.choice(rand_tickets)}")
 
-def raise_excp():
+def raise_excp(): 
 	raise Exception
 
 try:
@@ -28,4 +28,4 @@ try:
 except:
 	print("Exception was raised")
 finally:
-	print('to be continued...')
+	print('To be continued...')
