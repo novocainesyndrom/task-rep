@@ -1,7 +1,8 @@
 from datetime import timedelta, datetime as dt
 import random
 
-print(f'Date on next day = {dt.today() + timedelta(days=1)}')
+next_date = (dt.today() + timedelta(days=1)).strftime("%d-%m-%Y %H:%M:%S.%f")
+print(f'Date on next day = {next_date}', type(next_date))
 
 date_string = "2020-02-03 09:18:36.000"
 date_time = dt.strptime(date_string, "%Y-%m-%d %H:%M:%S.%f")
