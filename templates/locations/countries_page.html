@@ -18,7 +18,7 @@
     <div class="col-12">
 		<ul class="list-group">
 		{% for country in countries %}
-			<a href="{% url 'locations:country_page' country.name  %}" class="list-group-item list-group-item-action list-group-item-light">
+			<a href="{% url 'locations:country_page' country.id  %}" class="list-group-item list-group-item-action list-group-item-light">
 				<div class="media">
 					<div class="media-body">
 						<h5 class="mt-0 mb-1"> {{country}}</h5>
@@ -42,9 +42,6 @@
     </div>
 </div>
 
-
-
-
-
 {% endblock content %}
+
 
