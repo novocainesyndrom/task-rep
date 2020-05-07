@@ -18,7 +18,7 @@
     <div class="col">
 		<ul class="list-group">
 			{% for city in cities %}
-				 <a href="{% url 'locations:city' country city  %}" class="list-group-item list-group-item-action list-group-item-light">{{ city }}</a>
+				 <a href="{% url 'locations:city' city.id  %}" class="list-group-item list-group-item-action list-group-item-light">{{ city }}</a>
 			{% empty %}
 				<div class="jumbotron">
 				   <h1 class="display-4">No cities</h1>
@@ -36,4 +36,3 @@
 	</div>
 </div>
 {% endblock content %}
-
