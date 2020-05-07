@@ -1,0 +1,50 @@
+{% extends "locations/base.html" %}
+{% load bootstrap4 %}
+{% load static %}
+
+{% block page_title %}
+	Country list
+{% endblock page_title %}
+
+{% block content %}
+
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-4">
+      <h1 class="display-4">Country list</h1>
+    </div>
+  </div>
+  <div class="row justify-content-between">
+    <div class="col-12">
+		<ul class="list-group">
+		{% for country in countries %}
+			<a href="{% url 'locations:country_page' country.name  %}" class="list-group-item list-group-item-action list-group-item-light">
+				<div class="media">
+					<div class="media-body">
+						<h5 class="mt-0 mb-1"> {{country}}</h5>
+						<p> {{ country.description|slice:":60" }}<br>
+							Population: {{ country.population }}<br>
+							Cities count: {{ country.cities_count }}
+						</p>
+					</div>
+					<img src="{{country.flag.image.url}}" class="w-3" alt="...">
+				</div>
+			</a>
+		{% endfor %}
+		</ul>
+    </div>
+  </div>
+	<br>
+	<div class="row justify-content-center">
+        <div class="col-">
+            <a href="{% url 'locations:logout' %}" class="btn btn-secondary">Logout</a>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+{% endblock content %}
+
