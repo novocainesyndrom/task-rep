@@ -19,7 +19,7 @@ def countries_page(request):
 @login_required
 def country_page(request, country_id):
     country = get_object_or_404(Country, id=country_id)
-    cities = [city for city in City.objects.all() if city.country.id == country_id]
+    cities = City.objects.filter(country=country)
     content = {'country':country,
                'cities': cities,
                'user':request.user}
