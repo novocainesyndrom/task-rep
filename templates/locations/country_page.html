@@ -1,0 +1,41 @@
+{% extends "locations/base.html" %}
+{% load bootstrap4 %}
+
+{% block page_title %}
+	Country
+{% endblock page_title %}
+
+{% block content %}
+
+<div class="container">
+
+  <div class="row justify-content-center">
+    <div class="col-10">
+      <h1 class="display-4">{{country}}'s cities</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+		<ul class="list-group">
+			{% for city in cities %}
+
+				 <a href="{% url 'locations:city' city.id  %}" class="list-group-item list-group-item-action list-group-item-light">{{ city }}</a>
+			{% empty %}
+				<div class="jumbotron">
+				   <h1 class="display-4">No cities</h1>
+				</div>
+			{% endfor %}
+		</ul>
+	</div>
+  </div>
+	<br>
+	<div class="row justify-content-center">
+		<div class="col-3">
+		  	<a href="{% url 'locations:countries_page' %}" class="btn btn-dark">Go back</a>
+			<a href="{% url 'locations:add_city' country.id %}" class="btn btn-dark ">Add city</a>
+			<a href="{% url 'locations:logout' %}" class="btn btn-dark ">Logout</a>
+		</div>
+	</div>
+</div>
+{% endblock content %}
+

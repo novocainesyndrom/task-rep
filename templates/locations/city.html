@@ -1,0 +1,42 @@
+{% extends "locations/base.html" %}
+{% load bootstrap4 %}
+
+{% block page_title %}
+	City
+{% endblock page_title %}
+
+{% block content %}
+
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-10">
+            <h1 class="display-4">{{city.name}}'s information</h1>
+        </div>
+    </div>
+    <div class="row ">
+        <div class="col">
+            <div class="card">
+                <div class="card-header">
+                    <h4>Country: {{city.country}}</h4>
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">Latitude: {{city.latitude}}</h5>
+                    <h5 class="card-title">Longitude:{{city.longitude}}</h5>
+                    <a href="{% url 'locations:remove' city.id  %}" class="btn btn-danger">Delete</a>
+                    <a href="{% url 'locations:edit_city' city.id  %}" class="btn btn-dark">Edit</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="row justify-content-center">
+        <div class="col-3">
+            <a href="{% url 'locations:country_page' city.country.id  %}" class="btn btn-dark">Go back</a>
+            <a href="{% url 'locations:logout' %}" class="btn btn-dark">Logout</a>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
+
