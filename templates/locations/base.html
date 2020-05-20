@@ -1,0 +1,51 @@
+{% load bootstrap4 %}
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>
+			{% block page_title %}
+				Countries
+			{% endblock page_title %}
+		</title>
+		{% block extra_styles %}
+			{% bootstrap_css %}
+			{% bootstrap_javascript jquery='full' %}
+		{% endblock extra_styles %}
+
+	</head>
+	<body>
+		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+			<a class="navbar-brand" href="{% url 'locations:countries_page' %}">Locations</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav mr-auto">
+				  <li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					  Countries
+					</a>
+					<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+						{% for country in request.country_list %}
+							<a class="dropdown-item" href="{% url 'locations:country_page' country.id %}">{{ country }}</a>
+						{% endfor %}
+					</div>
+				  </li>
+				  <li class="nav-item">
+					  <span class="navbar-text">Hello, {{ request.user }}</span>
+				  </li>
+				</ul>
+				<form action="{% url 'locations:logout' %}" >
+					<input type='submit'  class="btn btn-outline-dark" value="Logout">
+				</form>
+			</div>
+		</nav>
+		{% block content %}{% endblock content %}
+		{% block extra_scripts %}{% endblock extra_scripts %}
+
+
+	</body>
+</html>
