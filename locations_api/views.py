@@ -58,6 +58,8 @@ class UserView(ListCreateAPIView):
     
 
 class GoogleView(APIView):
+    permission_classes = [AllowAny]
+    
     def post(self, request):
         payload = {'access_token': request.data.get("token")}
         r = requests.get('https://www.googleapis.com/oauth2/v2/userinfo', params=payload)
