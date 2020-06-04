@@ -15,18 +15,19 @@ from django.contrib.auth.hashers import make_password
 class CountriesView(ListCreateAPIView):
     queryset = Country.objects.all()
     serializer_class = CountriesSerializer
-
+    permission_classes = [IsAuthenticated]
 
 
 class CountryView(RetrieveUpdateDestroyAPIView):
     queryset = Country.objects.all()
     serializer_class = CountriesSerializer
-
+    permission_classes = [IsAuthenticated]
 
 
 class CitiesView(ListCreateAPIView):
     queryset = City.objects.all().order_by('country__id')
     serializer_class = CitySerializer
+    permission_classes = [IsAuthenticated]
 
 
     def get_queryset(self):
@@ -40,12 +41,14 @@ class CitiesView(ListCreateAPIView):
 class CityView(RetrieveUpdateDestroyAPIView):
     queryset = City.objects.all()
     serializer_class = CitySerializer
+    permission_classes = [IsAuthenticated]
 
 
 
 class UserView(ListCreateAPIView):
     queryset = User.objects.all()
     serializer_class = UserSerial
+    permission_classes = [AllowAny]
 
 
     def post(self,  request, *args, **kwargs):
