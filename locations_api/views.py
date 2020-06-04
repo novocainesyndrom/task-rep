@@ -37,19 +37,16 @@ class CitiesView(ListCreateAPIView):
         return query_data
 
 
-
 class CityView(RetrieveUpdateDestroyAPIView):
     queryset = City.objects.all()
     serializer_class = CitySerializer
     permission_classes = [IsAuthenticated]
 
 
-
 class UserView(ListCreateAPIView):
     queryset = User.objects.all()
     serializer_class = UserSerial
     permission_classes = [AllowAny]
-
 
     def post(self,  request, *args, **kwargs):
         serializer = UserSerial(data=request.data)
@@ -58,6 +55,7 @@ class UserView(ListCreateAPIView):
             if user:
                 return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    
 
 class GoogleView(APIView):
     def post(self, request):
